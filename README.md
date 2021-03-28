@@ -11,18 +11,6 @@ A API foi desenvolvida dentro do padrão REST, é executada em um container Docker
 - desafiobackapi foi escrita em C# . NET Core 5.0 e utiliza o LocalSqlServer, EntityFramework, Dapper, Swagger, xUnit para testes unitários.
 
 # Recursos, parâmetros e requisitos:
-
-- CRIAR O PRIMEIRO MIGRATION.
-Abrir um cmd e entrar no diretório do projeto .\DesafioBack\DesafioBack e executar os comandos.
-
-dotnet tool install --global dotnet-ef --version 3.1.5
-
-dotnet ef migrations add apiback -p .\DesafioBack.csproj 
-
-- APLICAR AS MIGRACOES NO BANCO.
-
-dotnet ef database update apiback -p \DesafioBack.csproj
-
   
 Para executar a API, basta abrir o projeto .\DesafioBack\DesafioBack.sln no Visual Studio e executar para abrir a página 
 http://localhost:62440/swagger/index.html. Executar no swagger as opções de inclusão, e consultas.
@@ -59,6 +47,18 @@ Exemplo de json para inclusão:
 
   ]
 }
+
+# Se for necessário criar o banco de dados.
+- CRIAR O PRIMEIRO MIGRATION.
+Abrir um cmd e entrar no diretório do projeto .\DesafioBack\DesafioBack e executar os comandos.
+
+dotnet tool install --global dotnet-ef --version 3.1.5
+
+dotnet ef migrations add apiback -p .\DesafioBack.csproj 
+
+- APLICAR AS MIGRACOES NO BANCO.
+
+dotnet ef database update apiback -p \DesafioBack.csproj
 
 ----------------------------------------------
 NÃO DEU TEMPO DE ACERTAR PELO DOCKER
