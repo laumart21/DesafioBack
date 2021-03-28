@@ -28,6 +28,7 @@ namespace DesafioBack.Controllers
         }
 
         [HttpPost]
+        [Route("Incluir")]
         public IActionResult Inclusao([FromBody] TituloInclusao tituloInclusao)
         {
             if (tituloInclusao == null)
@@ -44,7 +45,7 @@ namespace DesafioBack.Controllers
         }
 
         [HttpGet]
-        [Route("Consulta/{id}")]
+        [Route("Consultar/{id}")]
         public IActionResult ConsultaPorId(int id)
         {
             if (id == 0)
@@ -57,7 +58,7 @@ namespace DesafioBack.Controllers
         }
 
         [HttpGet]
-        [Route("Consulta/Atrasados")]
+        [Route("Consultar/Atrasados")]
         public IActionResult ConsultaAtrasados()
         {
             var Dao = new TituloDAO();
@@ -66,7 +67,7 @@ namespace DesafioBack.Controllers
         }
 
         [HttpGet]
-        [Route("Consulta/Dapper")]
+        [Route("Consultar/Dapper")]
         public IActionResult ConsultaDapper()
         {
             var Dao = new TituloDAO();

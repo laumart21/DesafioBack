@@ -24,15 +24,18 @@ namespace DesafioBack.Repository
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLoggerFactory(_logger).EnableSensitiveDataLogging();
-            
-            //optionsBuilder.UseSqlServer("Data source=(localdb)\\mssqllocaldb;Initial Catalog=DesafioBack;Integrated Security=true");
+
             if (!optionsBuilder.IsConfigured)
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("appsettings.json")
                    .Build();
-                var connectionString = configuration.GetConnectionString("DbCoreConnectionString");
+#if DEBUG
+                var connectionString = configuration.GetConnectionString("DebugConnectionString");
+#else
+                var connectionString = configuration.GetConnectionString("DockerConnectionString");
+#endif
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }

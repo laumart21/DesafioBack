@@ -8,6 +8,8 @@ using System.Linq;
 using Dapper;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace DesafioBack.DAO
 {
@@ -52,17 +54,20 @@ namespace DesafioBack.DAO
                 return listTituloConsulta;
             }
         }
-        public IList<TituloConsulta> ListaDapper()
+        public IList<TituloBase> ListaDapper()
         {
-            using (var contexto = new ApplicationContext())
+            IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json").Build();
+#if DEBUG
+            string connection = configuration.GetConnectionString("DebugConnectionString");
+#else
+            string connection = configuration.GetConnectionString("DockerConnectionString");
+#endif
+            using (SqlConnection conexao = new SqlConnection(connection))
             {
-                string connection = contexto.Database.GetConnectionString();
-                
-                using (SqlConnection conexao = new SqlConnection(connection))
-                {
-                    return (IList<TituloConsulta>)conexao.Query<TituloConsulta>("SELECT * FROM dbo.titulo");
-                }
+                return (IList<TituloBase>)conexao.Query<TituloBase>(@"SELECT * FROM dbo.titulo");
             }
+
         }
 
         public TituloConsulta BuscaPorId(int id)
@@ -114,7 +119,7 @@ namespace DesafioBack.DAO
                 Nome = tituloInclusao.Nome,
                 Numero = tituloInclusao.Numero,
                 QuantidadeParcelas = tituloInclusao.Parcelas.Count
-                
+
             };
             titulo.ValorAtualizado = new TituloCalculoValorAtualizado().Calcular(titulo);
             titulo.Parcelas = new List<Parcela>();

@@ -7,6 +7,8 @@
       environment:
         SA_PASSWORD: "sqlserver"
         ACCEPT_EULA: "Y"
+      ports:
+        - '1401:1433'
       restart: always
       networks: 
        - desafionet
@@ -17,15 +19,16 @@
       context: .
       dockerfile: Dockerfile
     environment: 
-      port: 5000
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings_DefaultConnection=Server=db,1401;database=master;User Id=sa;Password=sqlserver
     ports:
-      - '5000:80'
+      - '5001:80'
     depends_on: 
       - db
     links: 
       - db
     expose:
-      - 5000
+      - 5001
     networks:
       - desafionet
     restart: always
