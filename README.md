@@ -12,14 +12,15 @@ A API foi desenvolvida dentro do padrão REST, é executada em um container Docker
 
 # Recursos, parâmetros e requisitos:
 
--- CRIAR O PRIMEIRO MIGRATION
+- CRIAR O PRIMEIRO MIGRATION.
 Abrir um cmd e entrar no diretório do projeto .\DesafioBack\DesafioBack e executar os comandos.
 
 dotnet tool install --global dotnet-ef --version 3.1.5
 
 dotnet ef migrations add apiback -p .\DesafioBack.csproj 
 
--- APLICAR AS MIGRACOES NO BANCO
+- APLICAR AS MIGRACOES NO BANCO.
+
 dotnet ef database update apiback -p \DesafioBack.csproj
 
   
