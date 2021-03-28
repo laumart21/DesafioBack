@@ -2,18 +2,12 @@
 
 namespace DesafioBack.Domain.Domains
 {
-    public class Titulo
+    public class Titulo : TituloBase
     {
-
         public int Id { get; set; }
+        public int QuantidadeParcelas { get; set; }
+        public decimal ValorAtualizado { get; set; }
 
-        public long Numero { get; set; }
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public decimal Juros { get; set; }
-        public decimal Multa { get; set; }
-
-        public ICollection<Parcela> Parcelas { get; set; }
-
+        public List<Parcela> Parcelas { get; set; }
     }
 }

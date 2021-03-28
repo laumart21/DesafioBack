@@ -1,9 +1,11 @@
 ﻿using DesafioBack.DAO;
 using DesafioBack.Domain.Domains;
+using DesafioBack.Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,31 +28,50 @@ namespace DesafioBack.Controllers
         }
 
         [HttpPost]
-        public IActionResult Inclusao([FromBody] Titulo titulo)
+        public IActionResult Inclusao([FromBody] TituloInclusao tituloInclusao)
         {
-            if (titulo == null)
-                return BadRequest();
+            if (tituloInclusao == null)
+                return BadRequest("Forneça dados validos!");
+            else if (tituloInclusao.Numero == 0)
+                return BadRequest("Forneça dados validos!");
+            else if (tituloInclusao.Parcelas.Count == 0)
+                return BadRequest("Forneça dados validos!");
 
             var Dao = new TituloDAO();
-            Dao.Adiciona(titulo);
+            Dao.Adiciona(tituloInclusao);
 
-            return Accepted(titulo);
+            return Accepted(tituloInclusao);
         }
 
         [HttpGet]
         [Route("Consulta/{id}")]
         public IActionResult ConsultaPorId(int id)
         {
+            if (id == 0)
+                return BadRequest();
 
-            return Accepted();
+            var Dao = new TituloDAO();
+            var tituloConsulta = Dao.BuscaPorId(id);
+
+            return Ok(tituloConsulta);
         }
 
         [HttpGet]
         [Route("Consulta/Atrasados")]
         public IActionResult ConsultaAtrasados()
         {
+            var Dao = new TituloDAO();
+            var titulos = Dao.Lista();
+            return Ok(titulos);
+        }
 
-            return Accepted();
+        [HttpGet]
+        [Route("Consulta/Dapper")]
+        public IActionResult ConsultaDapper()
+        {
+            var Dao = new TituloDAO();
+            var titulos = Dao.ListaDapper();
+            return Ok(titulos);
         }
     }
 }

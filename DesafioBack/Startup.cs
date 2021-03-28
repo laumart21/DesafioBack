@@ -1,6 +1,8 @@
+using DesafioBack.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,6 +29,9 @@ namespace DesafioBack
         {
 
             services.AddControllers();
+            //services.AddDbContext<ApplicationContext>(options =>
+            //            options.UseSqlServer(Configuration.GetConnectionString("DbCoreConnectionString")));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesafioBack", Version = "v1" });
@@ -36,6 +41,12 @@ namespace DesafioBack
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = serviceScope.ServiceProvider.GetRequiredService<ApplicationContext>();
+            //    context.Database.EnsureCreated();
+            //}
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

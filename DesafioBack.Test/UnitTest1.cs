@@ -12,22 +12,20 @@ namespace Desafio.Api.Titulos.Test
 {
     public class UnitTest1
     {
-        //private readonly Titulo _titulo;
         private readonly PopulaTitulo _populaTitulo;
         private readonly TituloCalculoJuros _tituloCalculoJuros;
         private readonly TituloCalculoMulta _tituloCalculoMulta;
         private readonly TituloCalculoValorOriginal _tituloValorOriginal;
-        //private readonly int _juros = 1;
-        //private readonly int _multa = 2;
-
+        private readonly TituloCalculoValorAtualizado _tituloValorAtualizado;
+        
         ITestOutputHelper _itestOutputHelper;
         public UnitTest1(ITestOutputHelper testOutputHelper)
         {
-            //_titulo = new Titulo();
             _populaTitulo = new PopulaTitulo();
             _tituloCalculoJuros = new TituloCalculoJuros();
             _tituloCalculoMulta = new TituloCalculoMulta();
             _tituloValorOriginal = new TituloCalculoValorOriginal();
+            _tituloValorAtualizado = new TituloCalculoValorAtualizado();
             _itestOutputHelper = testOutputHelper;
         }
 
@@ -40,15 +38,13 @@ namespace Desafio.Api.Titulos.Test
         [Fact]
         public void Calculo_Juros()
         {
-            Assert.Equal(16.48M, _tituloCalculoJuros.Calcular(_populaTitulo.titulo));
+            Assert.Equal(16.60M, _tituloCalculoJuros.Calcular(_populaTitulo.titulo));
         }
 
         [Fact]
         public void Calculo_Valor_Atualizado()
         {
-            Assert.Equal(383.68M, _tituloValorOriginal.Calcular(_populaTitulo.titulo) +
-                             _tituloCalculoMulta.Calcular(_populaTitulo.titulo) + 
-                             _tituloCalculoJuros.Calcular(_populaTitulo.titulo));
+            Assert.Equal(383.80M, _tituloValorAtualizado.Calcular(_populaTitulo.titulo));
         }
     }
 }

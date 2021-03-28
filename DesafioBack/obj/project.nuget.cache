@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "o9cew05Bwt9i8jH2Nbbz5Npo7FxMLyll+wQdzVkHdLcD17KPw5jaeWQvUo9dH0uMPncmGLBUw4M5yMbtjTYeTQ==",
+  "dgSpecHash": "E06/qaZN8209gkUfCDy3Eygwj21MwvS3XMJf+rrP4Fj9u4QFuCV+tCD4lBYRcIl4RLsX/TnUsZLJhXngCrO4nA==",
   "success": true,
   "projectFilePath": "C:\\Users\\laudinei martins\\source\\repos\\DesafioBack\\DesafioBack\\DesafioBack.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\laudinei martins\\.nuget\\packages\\dapper\\2.0.78\\dapper.2.0.78.nupkg.sha512",
     "C:\\Users\\laudinei martins\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\laudinei martins\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\laudinei martins\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

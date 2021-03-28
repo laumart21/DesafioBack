@@ -7,9 +7,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioBack", "DesafioBack\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{674F7A83-DDE1-4C9C-B92A-0F99661DAE4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioBack.Test", "DesafioBack.Test\DesafioBack.Test.csproj", "{20DF880A-AD15-48C2-A005-092FEF35C240}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioBack.Test", "DesafioBack.Test\DesafioBack.Test.csproj", "{20DF880A-AD15-48C2-A005-092FEF35C240}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioBack.Domain", "DesafioBack.Domain\DesafioBack.Domain.csproj", "{EDFF6EA3-0D37-4CDB-B6F9-FF6E0CF1BF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesafioBack.Domain", "DesafioBack.Domain\DesafioBack.Domain.csproj", "{EDFF6EA3-0D37-4CDB-B6F9-FF6E0CF1BF5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C62EB3D2-F488-4E7C-B320-E92DFB18C1DE}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

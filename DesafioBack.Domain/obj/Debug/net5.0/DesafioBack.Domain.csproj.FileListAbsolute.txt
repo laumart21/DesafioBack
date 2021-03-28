@@ -2,6 +2,7 @@ C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\bin\Debug\
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\bin\Debug\net5.0\DesafioBack.Domain.dll
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\bin\Debug\net5.0\ref\DesafioBack.Domain.dll
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\bin\Debug\net5.0\DesafioBack.Domain.pdb
+C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\obj\Debug\net5.0\DesafioBack.Domain.csprojAssemblyReference.cache
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\obj\Debug\net5.0\DesafioBack.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\obj\Debug\net5.0\DesafioBack.Domain.AssemblyInfoInputs.cache
 C:\Users\laudinei martins\source\repos\DesafioBack\DesafioBack.Domain\obj\Debug\net5.0\DesafioBack.Domain.AssemblyInfo.cs
